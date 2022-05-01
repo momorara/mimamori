@@ -1,0 +1,30 @@
+
+以下のライブラリをインストールしてください。
+
+
+Ambientライブラリのインストール
+pip3 install git+https://github.com/AmbientDataInc/ambient-python-lib.git
+
+twitter関連のインストール
+pip3 install requests requests_oauthlib
+
+
+
+通信としてsoracom使う場合は、以下もインストールします。
+
+curl -O https://soracom-files.s3.amazonaws.com/setup_air.sh
+sudo bash setup_air.sh
+
+接続できたか確認
+ifconfig ppp0
+
+
+---------------------------------------------------------------------------
+上記を一括でインストールする場合
+
+pip3 install requests requests_oauthlib
+pip3 install git+https://github.com/AmbientDataInc/ambient-python-lib.git
+curl -O https://soracom-files.s3.amazonaws.com/setup_air.sh
+sudo bash setup_air.sh
+
+
