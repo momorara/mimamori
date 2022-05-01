@@ -80,7 +80,7 @@ config_ini.read(path + 'config.ini', encoding='utf-8')
 # ---------------------------------------------------------------------
 # mail、LINE、Twitterで送るメッセージ
 message = config_ini.get('DEFAULT', 'message')
-# LEDフラッシュ
+# LEDフラッシュ LEDの点滅を活殺します。
 LED_flash_on_off = int(config_ini.get('DEFAULT', 'LED_flash_on_off')) 
 
 
