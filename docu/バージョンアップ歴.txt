@@ -13,7 +13,7 @@
 川端拝。  pc_mailbox@mineo.jp
 
 
-アップグレード歴
+バージョンアップ歴
 
 v1.1 通知mailの宛先を複数にする。
 	sendMail.py
