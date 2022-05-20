@@ -1,9 +1,0 @@
-#@reboot sleep 20 && python3 /home/pi/mimamori/mimamori01.py >mimamori_log.txt 2>&1
-@reboot sleep 20 && python3 /home/pi/mimamori/mimamori020.py >mimamori_log.txt 2>&1
-
-@reboot rm *.bak
-@reboot sleep 2 && mv mima_log.txt  mima_log.bak
-@reboot sleep 3 && mv sub_log.txt   sub_log.bak
-
-
-
