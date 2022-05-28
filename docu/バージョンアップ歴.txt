@@ -14,6 +14,7 @@
 
 
 バージョンアップ歴
+以下のプログラムをmimamoriディレクトリに入れてください。
 
 v1.1 通知mailの宛先を複数にする。
 	sendMail.py
@@ -27,3 +28,19 @@ v2.0 メールとLINEによる通知にpiCameraの画像を添付します。
 	config.ini  ←既に設定されていれば、cameraの部分だけ変更してください。
 	をダウンロードして入れ替えてください。
 	cronの内容をcrontab-pi.txtの内容に変更してください。
+
+v2.1 v2.0と同じですが、複数枚の写真を撮り、AIで顔を検知できればその画像を添付します。
+	mimamori021.py
+	facial_detection.py
+	photoList.py
+	haarcascade_frontalface_default.xml←ディレクトリpiとmimamoriの両方にコピーしてください。
+	config.ini  ←既に設定されていれば、cameraの部分だけ2に変更してください。
+	をダウンロードして入れ替えてください。
+	cronの内容を mimamori021.py を起動するように変更してください。
+	次のライブラリを追加インストールしてください。
+	・openCV、numpy、face-recognition
+	・インストール手順は　openCVインストール.txt　に記載しています。
+	普通にインストールして動くかもしれませんが、当方の環境では、工夫が必要でした。
+	インストール済みのmicroSDを用意していますので、そちらを合わせて購入してください。
+
+
