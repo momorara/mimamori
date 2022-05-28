@@ -1,13 +1,27 @@
+取り敢えずのインストール手順を記載しています。
+バージョンによって追加のライブラリをインストールする必要があります。
 
-以下のライブラリをインストールしてください。
+step 0
+	Busterをインストール
+	諸々インストール　必要に応じてインストール
+		日本語化、camera、VNC,SSH,samba(カメラを使わないならcamera不要)
+step 1
+	git clone https://github.com/momorara/mimamori 
+step 2
+	以下のライブラリをインストールしてください。
 
+	Ambientライブラリのインストール
+	pip3 install git+https://github.com/AmbientDataInc/ambient-python-lib.git
 
-Ambientライブラリのインストール
-pip3 install git+https://github.com/AmbientDataInc/ambient-python-lib.git
+	twitter関連のインストール
+	pip3 install requests requests_oauthlib
+step 3
+	crontab -eでcron設定
+step 4
+	config.ini設定
 
-twitter関連のインストール
-pip3 install requests requests_oauthlib
-
+reboot
+	
 
 
 通信としてsoracom使う場合は、以下もインストールします。
