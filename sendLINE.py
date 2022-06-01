@@ -6,7 +6,7 @@ LINE01.py
 LINEにトークンを使ってメッセージを送ります。
 
 2022/04/04  見守り対応
-
+2022/06/02  テスト送信不良
 """
 import requests
 import configparser
@@ -40,27 +40,27 @@ def Line_sendMessage(msg):
         pass
 
 def main():
-    Line_sendMessage('見守り状況に変化がありました。test','token_kakunin')
+    Line_sendMessage('見守り状況に変化がありました。test')
 
 
 if __name__ == '__main__':
-    try:
+    # try:
         main()
         #when 'Ctrl+C' is pressed,child program destroy() will be executed.
-    except KeyboardInterrupt:
-        #destroy()
-        pass
-    except :
-        #エラー処理
-        print("エラー　通信エラーが考えられるので、しばらくして再開" )
-        time.sleep(360) #6分休憩
-        print('再開します。')
-        print()
-        try:
-            # 一回再チャレンジ
-            main()
-            # 今度エラーが起こると直ぐ止まる。
-        except :
-            #エラー処理
-            print("エラー　再開したが、再度エラーの模様　プログラム終了する。" )
-            print()
+    # except KeyboardInterrupt:
+    #     #destroy()
+    #     pass
+    # except :
+    #     #エラー処理
+    #     print("エラー　通信エラーが考えられるので、しばらくして再開" )
+    #     time.sleep(360) #6分休憩
+    #     print('再開します。')
+    #     print()
+    #     try:
+    #         # 一回再チャレンジ
+    #         main()
+    #         # 今度エラーが起こると直ぐ止まる。
+    #     except :
+    #         #エラー処理
+    #         print("エラー　再開したが、再度エラーの模様　プログラム終了する。" )
+    #         print()
