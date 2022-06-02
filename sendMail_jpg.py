@@ -6,6 +6,9 @@
 2022/05/09  jpgファイルが無い時対応
             to_addressの3通対応
             configにアドレスを追加するだけで良い   
+2022/05/31  画像が無い場合もエラーにならないようにする
+2022/06/02  同上、画像添付時にも件名が付くようにした。
+            ただし、画像を添付すると内容は添付出来なかった。
 """
 
 #################### メール送信 ###############################
@@ -15,6 +18,7 @@ from email.header import Header
 import datetime
 import configparser
 import getpass
+import os
 
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
@@ -59,8 +63,7 @@ def sendMail_n(subject,body,to_address):
         time_stump = str(dt_now.hour) + "時" + str(dt_now.minute) +  "分" 
         
         charset = 'iso-2022-jp'
-
-        msg = MIMEMultipart()
+        msg = MIMEText(body, 'plain', charset)
         msg_subject = subject + " " + time_stump
         msg['Subject'] = Header(msg_subject.encode(charset), charset)
         msg["To"] = to_address
@@ -68,20 +71,29 @@ def sendMail_n(subject,body,to_address):
         smtp_obj.ehlo()
         smtp_obj.starttls()
 
-        # 写真を添付
         jpg_path = 'image.jpg'
-        with open(jpg_path, "rb") as f:
-            photo = MIMEApplication(
-                f.read(),
-                Name=basename(jpg_path)
-            )
-        photo['Content-Disposition'] = 'attachment; filename="%s"' % basename(jpg_path)
-        msg.attach(photo)
+        # 写真ファィルがあるか確認
+        if os.path.exists(jpg_path):
+            # 写真を添付
+            msg = MIMEMultipart()
+            with open(jpg_path, "rb") as f:
+                photo = MIMEApplication(
+                    f.read(),
+                    Name=basename(jpg_path)
+                )
+            photo['Content-Disposition'] = 'attachment; filename="%s"' % basename(jpg_path)
+            msg.attach(photo)
+            msg['Subject'] = Header(msg_subject.encode(charset), charset)
+        else:
+            # 写真なし
+            msg = MIMEText('写真がありません', 'plain', charset)
+
+
         smtp_obj.login(username_s, password_s)
         smtp_obj.sendmail(username_s, to_address, msg.as_string())
         smtp_obj.quit()
 
-        print('mail send')
+        print('mail send ',to_address)
     except :
         print("mail send error")
         pass
