@@ -21,3 +21,19 @@ Google アカウントに移動します。
 -------------------------
 config.iniに設定してください。
 
+<<カメラ>>
+mmal: mmal_vc_component_enable: failed to enable component: ENOSPC
+mmal: camera component couldn't be enabled
+mmal: main: Failed to create camera component
+mmal: Failed to run camera app. Please check for firmware updates
+なるエラーが出ました。
+/boot/config.txt の gpu_mem (GPUに割り当てるメモリ量) の値を増やして再起動することで解決するようです。
+gpu_mem=128 (128MB) だったのを gpu_mem=144 (144MB) にする
+
+<<顔検出>>
+顔検出について
+正面の顔は結構精度良く検出します。
+ただし、全く顔ではないものでも特徴量に合致してしまうと顔と検出してしまいます。
+例えは、服のシワとか、Tシャツのブリント、服の柄、背景にある小物などなど
+服のシワとかしどうしようもないですが、背景にある小物など顔として検出してしまうようなものは
+確認できれば、のけておくとよいでしょぅ。
