@@ -88,7 +88,6 @@ def sendMail_n(subject,body,to_address):
             # 写真なし
             msg = MIMEText('写真がありません', 'plain', charset)
 
-
         smtp_obj.login(username_s, password_s)
         smtp_obj.sendmail(username_s, to_address, msg.as_string())
         smtp_obj.quit()

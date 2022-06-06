@@ -74,12 +74,12 @@ def main():
     sendMail('見守り状況に変化がありました。test ','test')
 
 if __name__ == '__main__':
-    try:
+    # try:
         main()
         #when 'Ctrl+C' is pressed,child program destroy() will be executed.
-    except :
-        print("mail error")
-    else:
-        print('例外は発生しませんでした。')
-    finally:
-        print('実行が終了しました')
+    # except :
+    #     print("mail error")
+    # else:
+    #     print('例外は発生しませんでした。')
+    # finally:
+    #     print('実行が終了しました')
