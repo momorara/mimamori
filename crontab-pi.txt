@@ -1,8 +1,7 @@
-# カメラを使わない場合
-#@reboot sleep 20 && python3 /home/pi/mimamori/mimamori01.py >mima_log.txt 2>&1
+# 
+@reboot sleep 20 && python3 /home/pi/mimamori/mimamori032.py >mima_log.txt 2>&1
 
-# カメラを使う場合
-@reboot sleep 20 && python3 /home/pi/mimamori/mimamori020.py >mima_log.txt 2>&1
+
 
 @reboot rm *.bak
 @reboot sleep 2 && mv mima_log.txt  mima_log.bak
