@@ -67,7 +67,7 @@
 2022/06/04  たまにdriveRecodeが原因不明で落ちていることがあるので、rebornを実装。
             実際はmimqmoriで、driveRecodeを起動します。
 2022/06/09  リリース
-
+2024/01/14  Machinistサービス停止に伴う削除
 ############################################################################
 """
 import RPi.GPIO as GPIO
@@ -82,7 +82,7 @@ import sendMail
 import sendLINE
 import sendTwitter
 import sendAmbient
-import sendMachinist
+#import sendMachinist
 import sendMail_jpg
 import sendLINE_jpg
 # reborn用ライブラリ
@@ -130,7 +130,7 @@ mail_flag      = int(config_ini.get('MAIL', 'mail_flag'))
 LINE_flag      = int(config_ini.get('LINE', 'LINE_flag')) 
 twitter_flag   = int(config_ini.get('TWITTER', 'twitter_flag')) 
 ambient_flag   = int(config_ini.get('AMBIENT', 'ambient_flag')) 
-machinist_flag = int(config_ini.get('MACHINIST', 'machinist_flag')) 
+#machinist_flag = int(config_ini.get('MACHINIST', 'machinist_flag')) 
 # ---------------------------------------------------------------------
 
 # センサーによりGPIOピン設定を行う
@@ -231,7 +231,7 @@ def print_message():
     log_print('LINE_flag      ',LINE_flag) 
     log_print('twitter_flag   ',twitter_flag) 
     log_print('ambient_flag   ',ambient_flag)
-    log_print('machinist_flag ',machinist_flag) 
+    #log_print('machinist_flag ',machinist_flag) 
     log_print('camera         ',camera) 
     log_print()
 
@@ -292,18 +292,18 @@ def ambient(mesg):
             except: return 'err'
     return 'ok'
 
-def machinist(mesg):
-    # print('machinist-1',mesg)
-    if machinist_flag == 1:
-        # 流量制限して送信
-        try:
-            # print('machinist-2',mesg)
-            sendMachinist.send_metric(mesg)
-        except:
-            time.sleep(2)
-            try:    sendMachinist.send_metric(mesg)
-            except: return 'err'
-    return 'ok'
+# def machinist(mesg):
+#     # print('machinist-1',mesg)
+#     if machinist_flag == 1:
+#         # 流量制限して送信
+#         try:
+#             # print('machinist-2',mesg)
+#             sendMachinist.send_metric(mesg)
+#         except:
+#             time.sleep(2)
+#             try:    sendMachinist.send_metric(mesg)
+#             except: return 'err'
+#     return 'ok'
 
 def sensorPower_offon():
     # センサーエラーの回避のため10分おきに
@@ -351,7 +351,7 @@ def sw_contlor():
 
             # swが1秒以上押されたので、全てのデータを送信します。
             ambient(75)
-            machinist(75)
+            #machinist(75)
             send_message('見守りテスト-1')
 
             time.sleep(0.5)
@@ -380,11 +380,11 @@ def send_message(msg):
         sendTwitter.sendTwitter(mesg)
 
 def send_signal(num,flag):
-    if ambient_flag == 0 and machinist_flag == 0 and camera != 3:
+    if ambient_flag == 0  and camera != 3:
         # 両方フラグ 0 なら ディレイはキャンセルする。ただしカメラ3は除く
         flag = 0
     # webシステムに数値を投げる flag:1なら61秒待つ
-    machinist(num)
+    #machinist(num)
     # time.sleep(61)
     timer61s = time.time() + 61
     while (timer61s > time.time())  and flag == 1:
