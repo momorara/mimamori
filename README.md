@@ -26,3 +26,6 @@ git clone https://github.com/momorara/mimamori
 最新のバージョンはmimamori032.pyになっています。
 過去のバージョンを内包しており、config.iniの設定で同じように動作します。
 基本的にはcamera機能の変更であり、camera機能を使わないのであれば、バージョンアップする必要はありません。
+
+メンテナンス
+2024/01/14  machinistサービス停止に伴う削除
