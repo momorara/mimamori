@@ -21,6 +21,13 @@ git clone https://github.com/momorara/mimamori
 
 資料は、docuフォルダにあります。
 
+ 用途としては、<br>
+・ひとり親の簡易見守り<br>
+・子供の簡易見守り<br>
+・無人建物の簡易監視<br>
+・ペットの簡易見守り<br>
+が考えられます。<br>
+
 
 ** バージョンに関して **
 最新のバージョンはmimamori032.pyになっています。
