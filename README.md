@@ -41,4 +41,5 @@ git clone https://github.com/momorara/mimamori
 なので、Busterでの使用を推奨します。
 Bullseye、Bookwormでのサポートは基本的には範囲外とさせていただきます。
 特にカメラ関係は大きく仕様が変わっていますので、まず動作しないようです。<br>
+2024/10/27 「LINE Notify提供終了」がLINEで発表されています。https://notify-bot.line.me/closing-announce<br>
 
