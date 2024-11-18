@@ -43,3 +43,6 @@ Bullseye、Bookwormでのサポートは基本的には範囲外とさせてい�
 特にカメラ関係は大きく仕様が変わっていますので、まず動作しないようです。<br>
 2024/10/27 「LINE Notify提供終了」がLINEで発表されています。https://notify-bot.line.me/closing-announce<br>
 
+<h4><<サポート窓口>></h4>
+  メールアドレスが　tkj-works@mbr.nifty.com に変更になっています。<br>
+  資料等を修正中ですが、ご注意ください。<br>
